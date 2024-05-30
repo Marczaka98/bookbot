@@ -5,7 +5,7 @@ def main():
     letter_counts = count_letters(text)
     converted_list = convert_letter_dict_to_list(letter_counts)
     converted_list.sort(reverse=True, key=sort_on)
-    print(converted_list)
+    print_report(book_path, word_count, converted_list)
 
 def get_text(path):
     with open(path) as f:
@@ -37,5 +37,12 @@ def convert_letter_dict_to_list(letter_dict):
 
 def sort_on(dict):
     return dict["count"]
+
+def print_report(path, word_count, letters_list):
+    print(f"--- Begin report of {path} ---")
+    print(f"{word_count} words found in the document\n")
+    for i in range(0, len(letters_list)):
+        print(f"The {letters_list[i]["letter"]} character was found {letters_list[i]["count"]} times")
+    print("--- End report ---")
 
 main()
