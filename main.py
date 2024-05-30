@@ -3,8 +3,10 @@ def main():
     text = get_text(book_path)
     #print(text)
     word_count = count_words(text)
+    letter_counts = count_letters(text)
     print(f"WORD COUNT: {word_count}")
-    print(count_letters(text))
+    #print(count_letters(text))
+    convert_letter_dict_to_list(letter_counts)
 
 def get_text(path):
     with open(path) as f:
@@ -23,6 +25,15 @@ def count_letters(file_name):
             letters[letter] += 1
         else:
             letters[letter] = 1
-    print(letters)
+    return letters
+
+def convert_letter_dict_to_list(letter_dict):
+    letter_list = []
+    for letter in letter_dict:
+        if letter.isalpha():
+            letter_list.append(
+                {"letter": letter, "count": letter_dict[letter]}
+            )
+    print(letter_list)
 
 main()
