@@ -42,7 +42,7 @@ def print_report(path, word_count, letters_list):
     print(f"--- Begin report of {path} ---")
     print(f"{word_count} words found in the document\n")
     for i in range(0, len(letters_list)):
-        print(f"The {letters_list[i]["letter"]} character was found {letters_list[i]["count"]} times")
+        print(f"The {letters_list[i]['letter']} character was found {letters_list[i]['count']} times")
     print("--- End report ---")
 
 main()
